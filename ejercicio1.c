@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     
     printf("< %s >: process %d of %d\n", name, rank, np);
     
-    if (rank > 0) { 
+    if (rank > 0) {  //Es proceso que envia el mensaje al proceso 0
         snprintf(mssg, LENGTH, "Hello from Process %d", rank);
         MPI_Send(mssg, strlen(mssg) + 1, MPI_CHAR, 0, 10, MPI_COMM_WORLD); 
         printf("process %d sending message to process 0\n", rank); 

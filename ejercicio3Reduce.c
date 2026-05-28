@@ -79,8 +79,7 @@ int main(int argc, char *argv[])
     
     MPI_Scatter(v, my_size, MPI_DOUBLE, loc_v, my_size, MPI_DOUBLE, 0, MPI_COMM_WORLD);
     
-    //---------CÁLCULO DEL MÍNIMO LOCAL---------------
-    local_min = loc_v[0];
+ç    local_min = loc_v[0];
     for(int i = 1; i < my_size; i++) 
     {
         if (loc_v[i] < local_min) {
@@ -89,7 +88,6 @@ int main(int argc, char *argv[])
     }
     printf("P%d: local_min = %g\n", my_rank, local_min);
     
-    //--------REDUCCION guarda el minimo en global_min (en P0)-----------
     MPI_Reduce(&local_min, &global_min, 1, MPI_DOUBLE, MPI_MIN, 0, MPI_COMM_WORLD);
     
     if(my_rank == 0) 

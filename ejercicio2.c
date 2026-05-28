@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
                 }
             }
             
-            // Usamos status.MPI_SOURCE porque el Irecv se hizo con MPI_ANY_SOURCE
+            //Usamos status.MPI_SOURCE porque el Irecv se hizo con MPI_ANY_SOURCE
             printf("\t\t process 0: message received from process %d: \t %s \n", status.MPI_SOURCE, messages[i]);
         }
         free(p_requests);
